@@ -1,0 +1,15 @@
+-- PLUGINS INIT
+
+require('core.configs.autopairs')
+require('core.configs.bufferline')
+require('core.configs.completions')
+require('core.configs.git')
+-- require('core.configs.formatting')
+-- require('core.configs.gitsigns')
+require('core.configs.lsp-config')
+require('core.configs.lualine')
+require('core.configs.nvim-tree')
+require('core.configs.saga')
+require('core.configs.telescope')
+require('core.configs.treesitter')
+require('core.configs.colorsh')
