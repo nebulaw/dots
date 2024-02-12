@@ -1,0 +1,19 @@
+
+
+# not necessary
+fish/completions/
+fish/conf.d/
+fish/functions/
+fish/themes/
+fish/fish_plugins
+fish/fish_variables
+fish/fishd*
+
+zathura/
+sxhkd/
+bspwm/
+polybar/
+
+tmux/tmux.conf.bak
+
+
