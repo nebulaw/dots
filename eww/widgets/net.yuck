@@ -1,0 +1,18 @@
+
+(defvar net-ssid-visible true)
+(defpoll net-ssid
+  :interval "20s"
+  :initial "date"
+  :run-while net-ssid-visible
+  `iw dev | awk '{i = match($1, "ssid"); print i != 0 ? substr($0, index($0, "ssid") + 5) : "" }' | awk NF`
+)
+
+(defwidget net []
+  (box
+    :orientation "horizontal"
+    :space-evenly false
+    net-ssid
+  )
+)
+
+
