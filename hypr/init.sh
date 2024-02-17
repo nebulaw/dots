@@ -1,15 +1,12 @@
 #!/bin/fish
 
-set -gx GRIM_DEFAULT_DIR ~/Media/Pictures/Screenshots
-
-pkill jackdbus
-pkill pipewire
-pkill wireplumber
+# pkill pipewire
 pkill swww
 pkill eww
 
-pipewire &
-wireplumber &
+# pipewire &
+# wireplumber &
+dex -a
 swww-daemon &
 swww img ~/Media/Pictures/Wallpapers/w3.jpg
 eww daemon &
