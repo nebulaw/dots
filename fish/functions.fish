@@ -9,8 +9,24 @@ function ffman ()
     end
 end
 
-function xbps-pack ()
+function xbps-ls ()
   set package $argv[1]
   xbps-query -Rs $package | awk '{print match($1, "[*]") != 0 ? $0 : ""}' | awk NF
+end
+
+function ocaml_env_init ()
+
+end
+
+function fish_prompt ()
+    set_color normal
+    echo -n (whoami)
+    echo -n "@"
+    echo -n (hostname)
+    echo -n ":"
+    set_color green
+    echo -n $(prompt_pwd --dir-length=0)
+    set_color normal
+    echo -n "\$ "
 end
 
