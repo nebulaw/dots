@@ -7,10 +7,10 @@
 
 ]]
 
--- require('core.themes.neosolarized')
+require('core.themes.neosolarized')
 -- require('core.themes.kanagawa')
-require('core.themes.transparent')
+-- require('core.themes.transparent')
 
 -- set theme
-vim.cmd [[colorscheme jellybeans-nvim ]]
+vim.cmd [[colorscheme neosolarized ]]
 

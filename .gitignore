@@ -8,12 +8,17 @@ fish/themes/
 fish/fish_plugins
 fish/fish_variables
 fish/fishd*
+fish/binaries.fish
 
 zathura/
 sxhkd/
 bspwm/
 polybar/
-
-tmux/tmux.conf.bak
+tmux/
+vim*/
+fzf*
+picom/
+emacs
+xsettingsd
 
 

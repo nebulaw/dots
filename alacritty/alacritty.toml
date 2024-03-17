@@ -61,7 +61,7 @@ program = "/bin/fish"
 decorations = "Full"
 decorations_theme_variant = "Dark"
 dynamic_title = true
-opacity = 0.84
+opacity = 0.69
 startup_mode = "Windowed"
 
 [window.class]

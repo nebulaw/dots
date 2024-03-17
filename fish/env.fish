@@ -17,6 +17,7 @@ set -gx PATH ~/.local/pkgs/tlauncher/bin $PATH
 set -gx PATH ~/.local/pkgs/code/default/bin $PATH
 set -gx PATH ~/.local/pkgs/otd/opentabletdriver/usr/local/bin $PATH
 set -gx PATH ~/.local/pkgs/pureref/bin $PATH
+set -gx PATH ~/.local/pkgs/warp/ $PATH
 
 # java & maven
 set -gx JAVA_HOME ~/.local/pkgs/jdk/default
@@ -29,3 +30,4 @@ set -gx PATH ~/.opam/default/bin $PATH
 set -gx OPAM_SWITCH_PREFIX '/home/nebula/.opam/default';
 set -gx CAML_LD_LIBRARY_PATH '/home/nebula/.opam/default/lib/stublibs:/usr/lib/ocaml/stublibs:/usr/lib/ocaml';
 set -gx OCAML_TOPLEVEL_PATH '/home/nebula/.opam/default/lib/toplevel';
+

@@ -1,7 +1,8 @@
 (include "./widgets/date.yuck")
 (include "./widgets/battery.yuck")
 (include "./widgets/net.yuck")
-
+(include "./widgets/ram.yuck")
+(include "./widgets/volume.yuck")
 
 ;;; --- TOP BAR --- ;;;
 (defwidget top-bar []
@@ -26,7 +27,7 @@
       :halign "end"
       :space-evenly false
       :spacing 8
-      (net)
+      (ram)
       (battery)
     )
   )

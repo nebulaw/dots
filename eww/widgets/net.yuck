@@ -11,7 +11,12 @@
   (box
     :orientation "horizontal"
     :space-evenly false
-    net-ssid
+    (box
+      :class 'net-icon'
+      :orientation "horizontal"
+      :space-evenly false
+      :width 32
+    )
   )
 )
 

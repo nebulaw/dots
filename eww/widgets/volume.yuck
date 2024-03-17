@@ -1,0 +1,14 @@
+
+(defwidget volume []
+  (box
+    :orientation "h"
+    (scale
+      :class "volume-slider"
+      :width 80
+      :min 0
+      :max 100
+      :value 50
+      :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%"
+    )
+  )
+)

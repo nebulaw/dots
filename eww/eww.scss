@@ -46,4 +46,41 @@ calendar:selected {
   border-radius: 2px;
 }
 
+.net-icon {
+  background-image: url('./widgets/wifi.png');
+  background-size: cover;
+}
+
+.volume-slider {
+  background-color: transparent;
+  padding: 0 5px;
+}
+
+scale {
+  background-color: blue;
+  color: blue;
+}
+
+scale highlight {
+  background-color: gray;
+  min-height: 2px;
+  border-radius: 20px;
+  margin: 4px 4px;
+}
+
+scale trough {
+  background-color: gray;
+  border-radius: 20px;
+  margin: 2px 2px;
+}
+
+
+
+
+
+
+
+
+
+
 

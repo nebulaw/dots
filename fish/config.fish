@@ -10,11 +10,11 @@ source ~/Dots/fish/env.fish
 source ~/Dots/fish/functions.fish
 
 # exa aliases
-alias g "git"
-alias ll "exa --long --git --icons"
-alias ls "exa --grid --git --icons"
-alias tree "exa --tree --git --icons"
-alias readme "bat README.md"
+alias g       "git"
+alias ll      "exa --long --git --icons"
+alias ls      "exa --grid --git --icons"
+alias tree    "exa --tree --git --icons"
+alias readme  "bat README.md"
 
 # void
 if string match -r "$(cat /etc/os-release | head -n1 | sed 's/NAME="//; s/"$//')" "Void" > /dev/null

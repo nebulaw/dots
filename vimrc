@@ -62,6 +62,7 @@ call plug#begin()
   Plug 'chrisbra/Colorizer'
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+  Plug 'github/copilot.vim'
 call plug#end()
 
 let g:fzf_layout = { 'window': { 'width': 1.0, 'height': 1.0 } }
@@ -92,6 +93,8 @@ let g:copilot_filetypes = {
   \ 'typescriptreact':  v:true,
   \ 'javascriptreact':  v:true,
   \ 'vim':              v:true,
+  \ 'html':             v:true,
+  \ 'css':              v:true,
   \ '*':                v:false }
 
 nohl

@@ -1,0 +1,10 @@
+(defwidget ram []
+  (box
+    :orientation "horizontal"
+    :space-evenly false
+    :spacing 0
+    :width 60
+    "RAM: "{round(EWW_RAM.used_mem_perc, 1)}"%"
+  )
+)
+
