@@ -71,10 +71,8 @@ nmap('<leader>bh', ':bprevious<CR>')
 -- Managing Tabs
 nmap('tn', ':tabnew<CR>')
 nmap('te', ':tabedit<CR>')
--- nmap('ts', ':split<CR><C-w>w')
--- nmap('tv', ':vsplit<CR><C-w>w')
 nmap('tc', ':tabclose<CR>')
-nmap('<tab>', ':tabnext<CR>')
+nmap('tt', ':tabnext<CR>')
 -- Paste
 imap('<C-v>', '<ESC>l<S-p>i')
 -- Undo/Redo

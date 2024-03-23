@@ -26,6 +26,7 @@ cmp.setup({
   }, {
     { name = 'buffer' }
   }),
+
   formatting = {
     format = lspkind.cmp_format({
       mode = 'symbol',
@@ -39,7 +40,4 @@ cmp.setup({
     }),
   },
 })
-
--- SOME GOOD SNIPPENTS
-require('luasnip.loaders.from_vscode').lazy_load()
 

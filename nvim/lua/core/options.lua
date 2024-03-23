@@ -11,11 +11,12 @@ set.softtabstop = 2
 set.expandtab = true
 set.swapfile = false
 set.wrap = false
-set.relativenumber = false
+set.relativenumber = true
 set.ignorecase = true
 set.autoread = true
 set.smartcase = true
 set.incsearch = true
+set.foldmethod = 'marker'
 set.lazyredraw = true
 set.magic = true
 set.showmatch = true
@@ -39,7 +40,7 @@ set.listchars:append('tab:··,trail:·')
 if (vim.g.neovide) then
   vim.opt.guifont = "CaskaydiaCove Nerd Font Mono:h18"
   vim.opt.linespace = 0
-  vim.g.neovide_scale_factor = 0.8
+  vim.g.neovide_scale_factor = 0.9
   vim.g.neovide_transparency = 0.8
   vim.g.neovide_refresh_rate = 59
   vim.g.neovide_refresh_rate_idle = 2
@@ -55,5 +56,4 @@ if (vim.g.neovide) then
   vim.g.neovide_floating_blur_amount_x = 8.0
   vim.g.neovide_floating_blur_amount_y = 8.0
 end
-
 
