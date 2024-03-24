@@ -1,6 +1,5 @@
-
 -- Lualine {{{
-require('lualine').setup({
+require("lualine").setup({
   options = {
     theme = "auto",
     globalstatus = true,
@@ -14,9 +13,9 @@ require('lualine').setup({
         "diagnostics",
         symbols = {
           error = " ",
-          warn =  " ",
-          info =  " ",
-          hint =  " ",
+          warn = " ",
+          info = " ",
+          hint = " ",
         },
       },
       { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
@@ -32,7 +31,7 @@ require('lualine').setup({
 -- }}}
 
 -- Indentscope {{{
-require('mini.indentscope').setup({
+require("mini.indentscope").setup({
   symbol = "│",
   draw = {
     delay = 100,
@@ -42,7 +41,7 @@ require('mini.indentscope').setup({
 -- }}}
 
 -- Indent Blankline {{{
-require('ibl').setup({
+require("ibl").setup({
   indent = {
     char = "│",
     tab_char = "│",
@@ -65,4 +64,3 @@ require('ibl').setup({
   },
 })
 -- }}}
-

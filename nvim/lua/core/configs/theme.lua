@@ -1,5 +1,5 @@
-
-require('solarized-osaka').setup({
+require("solarized-osaka").setup({
   transparent = true,
 })
 
+vim.cmd([[ colorscheme solarized-osaka ]])
