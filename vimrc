@@ -3,31 +3,27 @@ syntax on
 set bg=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
+let g:solarized_italic=1
 colorscheme solarized
-
-hi VertSplit    ctermfg=NONE  ctermbg=NONE  cterm=NONE
-hi StatusLine   ctermfg=NONE  ctermbg=NONE  cterm=NONE
-hi StatusLineNC ctermfg=NONE  ctermbg=NONE  cterm=NONE
 
 set ai ts=2 et sw=2
 set bg=dark
 set bo=all
 set cb+=unnamedplus
-set fcs+=eob:\ ,vert:\▏
 set hi=9999
 set hls ic is lz list
 set lcs=tab:··,trail:·
 set ls=2
 set isk+=_
 set noswapfile
-set nu ru wmnu
+set nu rnu ru wmnu
 set nowrap
 set so=12
-set stl=%f%=%-1c:%l:%L%10.40y
+set stl=%f%=%-1v:%l:%L%10.40y
 set udf
 set udir=~/.vim/undo
 set ul=10000
-if executable("ocaml")
+if executable("opam")
   set rtp^="/home/nebula/.opam/default/share/ocp-indent/vim"
 endif
 
@@ -44,7 +40,7 @@ if strlen(getenv("WAYLAND_DISPLAY")) > 0
   nnoremap P :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>P
 endif
 inoremap jk             <esc>l
-" d eaten by the black hole
+" text finna be eaten by the black hole
 vnoremap d              "_d
 inoremap <c-s>          <esc>:w!<cr>
 nnoremap <space>h       :nohl<cr>
@@ -66,7 +62,6 @@ call plug#begin()
 call plug#end()
 
 let g:fzf_layout = { 'window': { 'width': 1.0, 'height': 1.0 } }
-let g:airline#extensions#tabline#enabled = 1
 
 function! Alias(cmd, alias)
   exec 'cnoreabbrev <expr> '.a:cmd
@@ -85,6 +80,7 @@ autocmd BufReadPre *
      \ | else
      \ | let g:copilot#enabled = v:true
      \ | endif
+
 let g:copilot_filetypes = {
   \ 'c':                v:true,
   \ 'python':           v:true,
