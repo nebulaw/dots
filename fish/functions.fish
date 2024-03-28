@@ -9,13 +9,8 @@ function ffman ()
     end
 end
 
-function xbps-ls ()
-  set package $argv[1]
-  xbps-query -Rs $package | awk '{print match($1, "[*]") != 0 ? $0 : ""}' | awk NF
-end
-
-function ocaml_env_init ()
-
+function ffont ()
+  fc-list | sed 's/.*: //; s/:.*//' | sort -rh | uniq | fzf --border=none
 end
 
 function fish_prompt ()
