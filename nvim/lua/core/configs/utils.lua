@@ -29,3 +29,6 @@ require("mini.comment").setup({
     textobject = "gc",
   },
 })
+
+-- TODOs
+require("todo-comments").setup({})

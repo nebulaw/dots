@@ -37,27 +37,25 @@ local servers = {
 -- })
 
 -- Formatting the file
--- local format_augroup = vim.api.nvim_create_augroup("Format", { clear = true })
--- local format_on_save = function(_, bufnr)
---   vim.api.nvim_clear_autocmd({
---     group = format_augroup,
---     buffer = bufnr,
---   })
---   vim.api.nvim_create_autocmd("BufWritePre", {
---     group = format_augroup,
---     buffer = bufnr,
---     callback = function()
---       vim.lsp.buf.format({ bufnr = bufnr, async = false })
---     end,
---   })
--- end
-
 require("conform").setup({
   formatters_by_ft = {
-    lua = { "stylua" },
-    python = { "isort", "black" },
-    javascript = { { "prettier", "prettierd" } },
-    typescript = { { "prettier", "prettierd" } },
+    ["lua"] = { "stylua" },
+    ["python"] = { "isort", "black" },
+    ["javascript"] = { "prettier" },
+    ["javascriptreact"] = { "prettier" },
+    ["typescript"] = { "prettier" },
+    ["typescriptreact"] = { "prettier" },
+    ["vue"] = { "prettier" },
+    ["css"] = { "prettier" },
+    ["scss"] = { "prettier" },
+    ["less"] = { "prettier" },
+    ["html"] = { "prettier" },
+    ["json"] = { "prettier" },
+    ["yaml"] = { "prettier" },
+    ["markdown"] = { "prettier" },
+    ["markdown.mdx"] = { "prettier" },
+    ["graphql"] = { "prettier" },
+    ["handlebars"] = { "prettier" },
   },
   format_on_save = {
     timeout_ms = 500,
@@ -70,18 +68,6 @@ require("conform").setup({
   },
 })
 
-local on_attach = function(client, bufnr)
-  if client.server_capabilities.documentFormattingProvider then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = vim.api.nvim_create_augroup("Format", { clear = true }),
-      buffer = bufnr,
-      callback = function()
-        require("conform").format({ bufnr = bufnr })
-      end,
-    })
-  end
-end
-
 mason.setup()
 mason_lsp.setup({
   ensure_installed = servers,
@@ -90,7 +76,18 @@ mason_lsp.setup({
     function(server_name)
       require("lspconfig")[server_name].setup({
         capabilities = capabilities,
-        on_attach = on_attach,
+        -- This formats file if formatter is provided
+        on_attach = function(client, bufnr)
+          if client.server_capabilities.documentFormattingProvider then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              group = vim.api.nvim_create_augroup("Format", { clear = true }),
+              buffer = bufnr,
+              callback = function()
+                require("conform").format({ bufnr = bufnr })
+              end,
+            })
+          end
+        end,
       })
     end,
     ["rust_analyzer"] = function()

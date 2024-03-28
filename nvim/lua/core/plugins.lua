@@ -11,21 +11,22 @@ packer.startup(function(use)
   use("wbthomason/packer.nvim")
 
   -- Utils
+  use("nvim-lua/plenary.nvim")
+  use("nvim-tree/nvim-web-devicons")
   use("echasnovski/mini.pairs")
-  use("JoosepAlviste/nvim-ts-context-commentstring")
   use("echasnovski/mini.comment")
+  use("JoosepAlviste/nvim-ts-context-commentstring")
   use("brenoprata10/nvim-highlight-colors")
   use("mg979/vim-visual-multi")
-  use("nvim-lua/plenary.nvim")
+  use("folke/todo-comments.nvim")
 
   -- Editor
+  use("akinsho/bufferline.nvim")
   use("lewis6991/gitsigns.nvim")
   use({
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
   })

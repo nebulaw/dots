@@ -37,6 +37,7 @@ set.pumblend = 5
 set.background = "dark"
 set.list = true
 set.listchars:append("tab:··,trail:·")
+set.rtp:append("/home/nebula/.opam/default/share/ocp-indent/vim")
 -- Sets undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Co = "\e[4:0m"]])
@@ -52,17 +53,17 @@ set.fillchars = {
 
 -- Neovide
 if vim.g.neovide then
-  vim.opt.guifont = "CaskaydiaCove Nerd Font Mono:h18"
+  vim.opt.guifont = "FiraCode Nerd Font Mono:h18"
   vim.opt.linespace = 0
   vim.g.neovide_scale_factor = 0.9
-  vim.g.neovide_transparency = 0.8
+  vim.g.neovide_transparency = 1.0
   vim.g.neovide_refresh_rate = 59
   vim.g.neovide_refresh_rate_idle = 2
   vim.g.neovide_no_idle = false
   vim.g.neovide_confirm_quit = false
   vim.g.neovide_fullscreen = false
   vim.g.neovide_remember_window_size = true
-  vim.g.neovide_cursor_animation_length = 0.1
+  vim.g.neovide_cursor_animation_length = 0.08
   vim.g.neovide_cursor_antialiasing = true
   -- Available VFX Modes: railgun, torpedo, pixiedust,
   -- sonicboom, ripple, wireframe

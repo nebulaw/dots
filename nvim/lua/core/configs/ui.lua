@@ -1,4 +1,4 @@
--- Lualine {{{
+-- Lualine
 require("lualine").setup({
   options = {
     theme = "auto",
@@ -28,9 +28,8 @@ require("lualine").setup({
   },
   extensions = { "neo-tree", "lazy" },
 })
--- }}}
 
--- Indentscope {{{
+-- Indentscope
 require("mini.indentscope").setup({
   symbol = "│",
   draw = {
@@ -38,9 +37,8 @@ require("mini.indentscope").setup({
   },
   options = { try_as_border = true },
 })
--- }}}
 
--- Indent Blankline {{{
+-- Indent Blankline
 require("ibl").setup({
   indent = {
     char = "│",
@@ -63,4 +61,3 @@ require("ibl").setup({
     },
   },
 })
--- }}}
