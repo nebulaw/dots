@@ -27,7 +27,7 @@
       :halign "end"
       :space-evenly false
       :spacing 8
-      (ram)
+;      (ram)
       (battery)
     )
   )

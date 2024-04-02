@@ -1,6 +1,7 @@
 live_config_reload = true
 working_directory = "None"
 
+
 [bell]
 animation = "EaseOutExpo"
 color = "#ffffff"
@@ -61,8 +62,11 @@ program = "/bin/fish"
 decorations = "Full"
 decorations_theme_variant = "Dark"
 dynamic_title = true
-opacity = 0.69
+opacity = 1.0
 startup_mode = "Windowed"
+
+[colors.primary]
+#background = "0x3e2e3e"
 
 [window.class]
 general = "Alacritty"
@@ -75,3 +79,4 @@ lines = 25
 [window.padding]
 x = 0
 y = 0
+
