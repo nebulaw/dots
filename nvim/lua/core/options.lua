@@ -24,7 +24,7 @@ set.magic = true
 set.showmatch = true
 set.errorbells = false
 set.visualbell = false
-set.termguicolors = false
+set.termguicolors = true
 set.scrolloff = 10
 set.clipboard:append("unnamedplus")
 set.shell = "fish"

@@ -5,4 +5,8 @@ require("solarized-osaka").setup({
   transparent = not vim.g.neovide,
 })
 
-vim.cmd([[ colorscheme solarized-osaka ]])
+if vim.g.neovide then
+  vim.cmd([[ colorscheme solarized-osaka ]])
+else
+  vim.cmd([[ colorscheme jellybeans-nvim ]])
+end

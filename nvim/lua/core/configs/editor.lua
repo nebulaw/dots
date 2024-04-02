@@ -1,9 +1,9 @@
 require("bufferline").setup({
   options = {
-    mode = "buffers", -- also: buffers, tabs
-    themable = true,
+    mode = "tabs", -- also: buffers, tabs
+    themable = false,
     diagnostics = "nvim_lsp",
-    always_show_bufferline = true,
+    always_show_bufferline = false,
     offsets = {
       {
         filetype = "neo-tree",
@@ -73,6 +73,7 @@ require("telescope").setup({
     },
     file_ignore_patterns = {
       "node_modules/",
+      "target/",
     },
     layout_config = {
       height = 0.8,
@@ -153,6 +154,6 @@ require("trouble").setup({
 
 -- Illuminate
 require("illuminate").configure({
-  delay = 280,
+  delay = 320,
   large_file_cutoff = 5000,
 })

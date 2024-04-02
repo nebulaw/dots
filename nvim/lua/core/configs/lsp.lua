@@ -193,29 +193,133 @@ mason_lsp.setup({
 require("luasnip.loaders.from_vscode").lazy_load()
 
 -- TODO: These abilities will be replaced by lspsaga
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-  callback = function(ev)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+--   callback = function(ev)
+--     -- Enable completion triggered by <c-x><c-o>
+--     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+--
+--     local opts = { buffer = ev.buf }
+--     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+--     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+--     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+--     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+--     vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+--     vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+--     vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+--     vim.keymap.set("n", "<space>wl", function()
+--       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+--     end, opts)
+--     vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+--     vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+--     vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+--     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+--     vim.keymap.set("n", "<space>f", function()
+--       vim.lsp.buf.format({ async = true })
+--     end, opts)
+--   end,
+-- })
 
-    local opts = { buffer = ev.buf }
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-    vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set("n", "<space>wl", function()
-      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, opts)
-    vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-    vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "<space>f", function()
-      vim.lsp.buf.format({ async = true })
-    end, opts)
-  end,
+require("lspsaga").setup({
+  -- options
+  request_timeout = 5000,
+
+  -- preview
+  preview = {
+    line_above = 2,
+    line_below = 8,
+  },
+  -- scroll preview
+  scroll_preview = {
+    scroll_down = "<c-d>",
+    scroll_up = "<c-u>",
+  },
+  -- diagnostics
+  diagnostics = {
+    on_insert_follow = true,
+    show_code_action = true,
+    max_width = 0.6,
+    keys = {
+      exec_action = "o",
+      quit = "q",
+      go_action = "g",
+    },
+  },
+  -- definition
+  definition = {
+    edit = "<c-c>e",
+    quit = "q",
+  },
+  -- rename
+  rename = {
+    quit = "q",
+    exec = "<CR>",
+    mark = "x",
+    confirm = "<CR>",
+    in_select = true,
+  },
+  -- code actions
+  code_action_prompt = {
+    enable = true,
+    sign = true,
+    sign_priority = 20,
+    virtual_text = true,
+  },
+  -- outline
+  outline = {
+    win_position = "right",
+    win_with = "",
+    win_width = 25,
+    show_detail = true,
+    auto_preview = true,
+  },
+  -- finder
+  finder = {
+    height = 0.4,
+    keys = {
+      jump_to = "o",
+      edit = { "e", "<CR>" },
+      vsplit = "s",
+      split = "i",
+      tabe = "t",
+      tabnew = "T",
+      quit = { "q", "quit" },
+    },
+  },
+  -- lightbulb
+  lightbulb = {
+    enable = false,
+    enable_in_insert = false,
+    sign = true,
+    sign_priority = 40,
+    virtual_text = false,
+  },
 })
+
+-- diagnostics
+-- nmap('<leader>dp','<cmd>Lspsaga diagnostics_jump_prev<CR>')
+-- nmap('<leader>dn','<cmd>Lspsaga diagnostics_jump_next<CR>')
+vim.keymap.set("n", "<leader>db", "<cmd>Lspsaga show_buf_diagnostics<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true, noremap = true })
+
+-- code actions
+vim.keymap.set("n", "ca", "<cmd>Lspsaga code_action<CR>", { silent = true, noremap = true })
+
+-- goto
+vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "gt", "<cmd>Lspsaga goto_type_definition<CR>", { silent = true, noremap = true })
+
+-- rename
+vim.keymap.set("n", "<leader>r", "<cmd>Lspsaga rename<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>p", "<cmd>Lspsaga rename ++project<CR>", { silent = true, noremap = true })
+
+-- docs
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "}", "<cmd>Lspsaga hover_doc ++keep<CR>", { silent = true, noremap = true })
+
+-- outline
+vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true, noremap = true })
+
+-- finder
+vim.keymap.set("n", "<leader>lf", "<cmd>Lspsaga finder<CR>", { silent = true, noremap = true })

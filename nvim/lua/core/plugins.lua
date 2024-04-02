@@ -51,6 +51,7 @@ packer.startup(function(use)
   use("hrsh7th/cmp-nvim-lsp")
   use("stevearc/conform.nvim")
   -- use("mfussenegger/nvim-lint")
+  use("glepnir/lspsaga.nvim")
 
   -- Themes
   use("rktjmp/lush.nvim")
