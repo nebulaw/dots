@@ -51,7 +51,10 @@ packer.startup(function(use)
   use("hrsh7th/cmp-nvim-lsp")
   use("stevearc/conform.nvim")
   -- use("mfussenegger/nvim-lint")
-  use("glepnir/lspsaga.nvim")
+  use({
+    "glepnir/lspsaga.nvim",
+    --    commit = "b7b4777",
+  })
 
   -- Themes
   use("rktjmp/lush.nvim")
