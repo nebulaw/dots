@@ -32,13 +32,6 @@ iabbrev teh the
 iabbrev amke make
 iabbrev lenght length
 
-if strlen(getenv("WAYLAND_DISPLAY")) > 0
-  autocmd TextYankPost *
-          \ if (v:event.operator == 'y' || v:event.operator == 'd') |
-          \ silent! execute 'call system("wl-copy", @")' | endif
-  nnoremap p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
-  nnoremap P :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>P
-endif
 inoremap jk             <esc>l
 " text finna be eaten by the black hole
 vnoremap d              "_d
@@ -52,6 +45,15 @@ nnoremap <space><space> :FZF
           \ --border=none
           \ --extended
           \ --color info:254,prompt:37,spinner:108,pointer:235,marker:235<cr>
+
+" clipboard for wayland if clipboard and wl-copy is available
+if $XDG_SESSION_TYPE ==? "WAYLAND" && has('clipboard') && executable("wl-copy")
+  autocmd TextYankPost *
+          \ if (v:event.operator == 'y' || v:event.operator == 'd') |
+          \ silent! execute 'call system("wl-copy", @")' | endif
+  nnoremap p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+  nnoremap P :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>P
+endif
 
 call plug#begin()
   Plug 'mg979/vim-visual-multi'
