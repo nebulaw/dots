@@ -1,8 +1,6 @@
 set fish_greeting "stargaze! ☆"
 
 # xdg
-set -gx TERM alacritty
-set -gx TERMINAL alacritty
 set -gx EDITOR nvim
 set -gx XDG_CONFIG_HOME ~/.config
 set -gx GRIM_DEFAULT_DIR ~/Pictures/Screenshots

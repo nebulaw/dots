@@ -38,9 +38,6 @@ set.background = "dark"
 set.list = true
 set.listchars:append("tab:··,trail:·")
 set.rtp:append("/home/nebula/.opam/default/share/ocp-indent/vim")
--- Sets undercurl
-vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Co = "\e[4:0m"]])
 set.fillchars = {
   foldopen = "",
   foldclose = "",
