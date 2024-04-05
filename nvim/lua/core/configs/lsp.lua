@@ -20,7 +20,7 @@ local servers = {
   "clangd",
 }
 
--- Linting
+-- Linting - Made me crazy
 -- require("lint").linters_by_ft = {
 --   markdown = { "vale" },
 --   javascript = { "biome" },
@@ -59,8 +59,8 @@ require("conform").setup({
   },
   format_on_save = {
     timeout_ms = 500,
-    async = false,
-    quiet = false,
+    async = true,
+    quiet = true,
     lsp_fallback = true,
   },
   formatters = {

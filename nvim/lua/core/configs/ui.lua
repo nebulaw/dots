@@ -2,7 +2,8 @@
 require("bufferline").setup({
   options = {
     mode = "tabs", -- also: buffers, tabs
-    themable = false,
+    themable = true,
+    separator_style = "slant", -- also: slope, thick, thin, slant
     diagnostics = "nvim_lsp",
     always_show_bufferline = false,
     offsets = {
@@ -17,35 +18,35 @@ require("bufferline").setup({
 })
 
 -- Lualine
--- require("lualine").setup({
---   options = {
---     theme = "auto",
---     globalstatus = true,
---     disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
---   },
---   sections = {
---     lualine_a = { "mode" },
---     lualine_b = { "branch" },
---     lualine_c = {
---       {
---         "diagnostics",
---         symbols = {
---           error = " ",
---           warn = " ",
---           info = " ",
---           hint = " ",
---         },
---       },
---       { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
---     },
---     lualine_y = {
---       { "progress", separator = " ", padding = { left = 1, right = 0 } },
---       { "location", padding = { left = 0, right = 1 } },
---     },
---     lualine_z = {},
---   },
---   extensions = { "neo-tree", "lazy" },
--- })
+require("lualine").setup({
+  options = {
+    theme = "auto",
+    globalstatus = true,
+    disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
+  },
+  sections = {
+    lualine_a = { "mode" },
+    lualine_b = { "branch" },
+    lualine_c = {
+      {
+        "diagnostics",
+        symbols = {
+          error = " ",
+          warn = " ",
+          info = " ",
+          hint = " ",
+        },
+      },
+      { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+    },
+    lualine_y = {
+      { "progress", separator = " ", padding = { left = 1, right = 0 } },
+      { "location", padding = { left = 0, right = 1 } },
+    },
+    lualine_z = {},
+  },
+  extensions = { "neo-tree", "lazy" },
+})
 
 -- Indentscope
 require("mini.indentscope").setup({

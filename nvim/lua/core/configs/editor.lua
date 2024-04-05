@@ -21,6 +21,7 @@ require("telescope").setup({
     file_ignore_patterns = {
       "node_modules/",
       "target/",
+      "venv/",
     },
     layout_config = {
       height = 0.8,
@@ -98,6 +99,8 @@ kset("n", "<space>cs", bi.colorscheme, opts)
 require("trouble").setup({
   use_diagnostic_signs = true,
 })
+
+kset("n", "<space>t", "<cmd>TroubleToggle<return>", { noremap = true, silent = true })
 
 -- Illuminate
 require("illuminate").configure({
