@@ -107,3 +107,11 @@ require("illuminate").configure({
   delay = 320,
   large_file_cutoff = 5000,
 })
+
+-- Github Copilot
+vim.keymap.set("i", "<c-j>", 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = true,
+  noremap = true,
+  silent = true,
+})
