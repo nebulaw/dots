@@ -1,10 +1,11 @@
 syntax on
 
+" set theme
 set bg=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_italic=1
-colorscheme solarized
+" colo solarized
 
 set ai ts=2 et sw=2
 set bg=dark
@@ -14,19 +15,15 @@ set hi=9999
 set hls ic is lz list
 set lcs=tab:··,trail:·
 set ls=2
-set isk+=_
+" set isk+=_
 set noswapfile
-set nu rnu ru wmnu
+set nu nornu ru wmnu
 set nowrap
 set so=12
 set stl=%f%=%-1v:%l:%L%10.40y
 set udf
 set udir=~/.vim/undo
 set ul=10000
-if executable("opam")
-  set rtp^="/home/nebula/.opam/default/share/ocp-indent/vim"
-endif
-
 iabbrev flaot float
 iabbrev teh the
 iabbrev amke make
@@ -35,6 +32,8 @@ iabbrev lenght length
 inoremap jk             <esc>l
 " text finna be eaten by the black hole
 vnoremap d              "_d
+" delete trailing whitespaces
+nnoremap dtw            :silent! %s/\s\+$//<cr>
 inoremap <c-s>          <esc>:w!<cr>
 nnoremap <space>h       :nohl<cr>
 nnoremap <space>c       :ColorToggle<cr>
@@ -73,6 +72,13 @@ endfunction
 call Alias("runc", "!clang -Wall -Wextra % -o ./bin/%:r -lm && ./bin/%:r")
 call Alias("runp", "!python %")
 call Alias("runt", "!pdflatex %")
+
+function! WordProcessorMode()
+  setlocal textwidth=90
+  " this ensures that the word is not broken
+  setlocal formatoptions-=t
+endfunction
+command! WP call WordProcessorMode()
 
 " Github Copilot
 autocmd BufReadPre *
