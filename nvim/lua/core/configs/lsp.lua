@@ -37,36 +37,44 @@ local servers = {
 -- })
 
 -- Formatting the file
-require("conform").setup({
-  formatters_by_ft = {
-    ["lua"] = { "stylua" },
-    ["python"] = { "isort", "black" },
-    ["javascript"] = { "prettier" },
-    ["javascriptreact"] = { "prettier" },
-    ["typescript"] = { "prettier" },
-    ["typescriptreact"] = { "prettier" },
-    ["vue"] = { "prettier" },
-    ["css"] = { "prettier" },
-    ["scss"] = { "prettier" },
-    ["less"] = { "prettier" },
-    ["html"] = { "prettier" },
-    ["json"] = { "prettier" },
-    ["yaml"] = { "prettier" },
-    ["markdown"] = { "prettier" },
-    ["markdown.mdx"] = { "prettier" },
-    ["graphql"] = { "prettier" },
-    ["handlebars"] = { "prettier" },
-  },
-  format_on_save = {
-    timeout_ms = 500,
-    async = true,
-    quiet = true,
-    lsp_fallback = true,
-  },
-  formatters = {
-    injected = { options = { ignore_errors = true } },
-  },
-})
+-- require("conform").setup({
+--   formatters_by_ft = {
+--     ["lua"] = { "stylua" },
+--     ["python"] = { "isort", "black" },
+--     ["javascript"] = { "prettier" },
+--     ["javascriptreact"] = { "prettier" },
+--     ["typescript"] = { "prettier" },
+--     ["typescriptreact"] = { "prettier" },
+--     ["css"] = { "prettier" },
+--     ["html"] = { "prettier" },
+--     ["json"] = { "prettier" },
+--     ["yaml"] = { "prettier" },
+--     ["markdown"] = { "prettier" },
+--     ["markdown.mdx"] = { "prettier" },
+--     ["graphql"] = { "prettier" },
+--     ["handlebars"] = { "prettier" },
+--     ["xml"] = { "xmlformatter" },
+--   },
+--   format_on_save = {
+--     timeout_ms = 500,
+--     async = true,
+--     quiet = true,
+--     lsp_fallback = false,
+--   },
+--   formatters = {
+--     injected = { options = { ignore_errors = true } },
+--   },
+-- })
+
+local read_exec_path = function(exec_name)
+  local handle = io.popen("which " .. exec_name)
+  if handle == nil then
+    return "/usr/bin/" .. exec_name
+  end
+  local result = handle:read("*a")
+  handle:close()
+  return result
+end
 
 mason.setup()
 mason_lsp.setup({
@@ -78,16 +86,32 @@ mason_lsp.setup({
         capabilities = capabilities,
         -- This formats file if formatter is provided
         on_attach = function(client, bufnr)
-          if client.server_capabilities.documentFormattingProvider then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              group = vim.api.nvim_create_augroup("Format", { clear = true }),
-              buffer = bufnr,
-              callback = function()
-                require("conform").format({ bufnr = bufnr })
-              end,
-            })
-          end
+          -- if client.server_capabilities.documentFormattingProvider then
+          --   vim.api.nvim_create_autocmd("BufWritePre", {
+          --     group = vim.api.nvim_create_augroup("Format", { clear = true }),
+          --     buffer = bufnr,
+          --     callback = function()
+          --       require("conform").format({ bufnr = bufnr })
+          --     end,
+          --   })
+          -- end
         end,
+      })
+    end,
+    ["pyright"] = function()
+      nvim_lsp["pyright"].setup({
+        capabilities = capabilities,
+        settings = {
+          python = {
+            analysis = {
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "workspace",
+              typeCheckingMode = "basic",
+              stubPath = "/usr/lib/python3.9/site-packages",
+            },
+          },
+        },
       })
     end,
     ["rust_analyzer"] = function()
@@ -136,7 +160,10 @@ mason_lsp.setup({
     ["clangd"] = function()
       nvim_lsp["clangd"].setup({
         capabilities = capabilities,
-        cmd = { "clangd" },
+        cmd = {
+          "clangd",
+          "--offset-encoding=utf-16",
+        },
         filetypes = {
           "c",
           "cpp",

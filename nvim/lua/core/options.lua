@@ -31,6 +31,7 @@ set.shell = "fish"
 set.path:append({ "**" })
 set.wildignore:append({ "*/node_modules/*" })
 set.cursorline = true
+-- set.selection = "exclusive"
 set.winblend = 0
 set.wildoptions = "pum"
 set.pumblend = 5
@@ -52,9 +53,9 @@ set.fillchars = {
 if vim.g.neovide then
   vim.opt.guifont = "FiraCode Nerd Font Mono:h18"
   vim.opt.linespace = 0
-  vim.g.neovide_scale_factor = 1.1
+  vim.g.neovide_scale_factor = 0.69
   vim.g.neovide_transparency = 1.0
-  vim.g.neovide_refresh_rate = 59
+  vim.g.neovide_refresh_rate = 51
   vim.g.neovide_refresh_rate_idle = 2
   vim.g.neovide_no_idle = false
   vim.g.neovide_confirm_quit = false

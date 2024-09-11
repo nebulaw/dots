@@ -1,3 +1,4 @@
+-- Simplest Neovim Configuration
 vim.opt.nu = true
 vim.opt.bg = "dark"
 vim.opt.ts = 2
