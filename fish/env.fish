@@ -1,12 +1,14 @@
 set -gx PATH bin $PATH
+set -gx PATH scripts $PATH
 set -gx PATH venv/bin $PATH
+set -gx PATH .venv/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH ~/.cargo/bin $PATH
 set -gx PATH node_modules/.bin $PATH
 
 # Packages Directory
 if not test -n "$PKG_HOME_DIR"
-  set -gx PKG_HOME_DIR "/home/nebula/.local/pkgs"
+  set -gx PKG_HOME_DIR "/home/nebula/.local/opt"
 end
 
 if not test -n "$PKG_DEFAULT_BIN"
@@ -20,7 +22,7 @@ for pkg in $(dir "$PKG_HOME_DIR" | xargs -n1 echo)
 end
 
 # java & maven
-set -gx JAVA_HOME ~/.local/pkgs/jdk/default
+set -gx JAVA_HOME ~/.local/opt/jdk/default
 
 # ocaml (not permanent)
 builtin -n | /bin/sh -c 'grep -q \'^argparse$\'' 1>/dev/null 2>/dev/null; and set -gx MANPATH ':/home/nebula/.opam/default/man'

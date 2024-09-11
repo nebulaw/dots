@@ -17,9 +17,9 @@ function fish_prompt ()
     set_color normal
     echo -n (whoami)
     echo -n "@"
-    echo -n (hostname)
+    echo -n (uname -n)
     echo -n ":"
-    set_color green
+    set_color cyan
     echo -n $(prompt_pwd --dir-length=0)
     set_color normal
     echo -n "\$ "
