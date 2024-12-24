@@ -1,8 +1,9 @@
+$bg-color: rgb(18 18 18);
 
 * {
   font-family: SF Pro Display;
-  font-weight: 800;
-  font-size: 17px;
+  font-weight: 500;
+  font-size: 16px;
   color: white;
   margin: 0;
   padding: 0;
@@ -10,13 +11,14 @@
 }
 
 label {
-  background-color: rgb(11, 11, 11);
+  background-color: $bg-color;
   border: 0px;
 }
 
 .calendar-window,
 .win {
-  background-color: rgb(11, 11, 11);
+  background-color: $bg-color;
+  padding-right: 8px;
 }
 
 .calendar-window {
@@ -37,50 +39,22 @@ calendar:selected {
 
 .battery-outer {
   border: 2px solid gray;
-  border-radius: 5px;
+  border-radius: 6px;
   padding: 1px;
 }
 
 .battery-inner {
   background-color: white;
-  border-radius: 2px;
-}
-
-.net-icon {
-  background-image: url('./widgets/wifi.png');
-  background-size: cover;
-}
-
-.volume-slider {
-  background-color: transparent;
-  padding: 0 5px;
-}
-
-scale {
-  background-color: blue;
-  color: blue;
-}
-
-scale highlight {
-  background-color: gray;
-  min-height: 2px;
-  border-radius: 20px;
-  margin: 4px 4px;
-}
-
-scale trough {
-  background-color: gray;
-  border-radius: 20px;
-  margin: 2px 2px;
+  border-radius: 3px;
 }
 
 
+.volume-icon {
+  -gtk-icon-effect: highlight;
+}
 
-
-
-
-
-
-
-
+.active-workspace {
+  background-color: rgb(200, 200, 200);
+  color: black;
+}
 

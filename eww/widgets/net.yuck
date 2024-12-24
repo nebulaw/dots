@@ -4,7 +4,7 @@
   :interval "20s"
   :initial "date"
   :run-while net-ssid-visible
-  `iw dev | awk '{i = match($1, "ssid"); print i != 0 ? substr($0, index($0, "ssid") + 5) : "" }' | awk NF`
+  `iwgetid -r`
 )
 
 (defwidget net []
@@ -16,6 +16,12 @@
       :orientation "horizontal"
       :space-evenly false
       :width 32
+      (image
+        :path "/home/nebula/Dots/eww/widgets/wifi.png"
+        :style "padding: 0px 4px 0px 0px;"
+        :image-width 22
+      )
+      net-ssid
     )
   )
 )

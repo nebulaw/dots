@@ -3,6 +3,8 @@
 (include "./widgets/net.yuck")
 (include "./widgets/ram.yuck")
 (include "./widgets/volume.yuck")
+(include "./widgets/cpu.yuck")
+(include "./widgets/workspace.yuck")
 
 ;;; --- TOP BAR --- ;;;
 (defwidget top-bar []
@@ -14,6 +16,7 @@
       :halign "start"
       :space-evenly false
       :spacing 8
+      (workspace)
     )
     (box ; middle side
       :class "middle-module-pane"
@@ -26,8 +29,11 @@
       :orientation "horizontal"
       :halign "end"
       :space-evenly false
-      :spacing 8
-;      (ram)
+      :spacing 12
+      (volume)
+      (net)
+      (ram)
+      (cpu)
       (battery)
     )
   )
@@ -39,7 +45,7 @@
       :x "0px"
       :y "0px"
       :width "100%"
-      :height "24px"
+      :height "28px"
       :anchor "top center"
   )
   :stacking "fg"

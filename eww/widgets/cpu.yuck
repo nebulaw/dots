@@ -1,14 +1,13 @@
-(defwidget ram []
+(defwidget cpu []
   (box
     :orientation "horizontal"
     :space-evenly false
     :spacing 2
     :width 60
     (image
-      :path "/home/nebula/Dots/eww/widgets/ram.png"
+      :path "/home/nebula/Dots/eww/widgets/cpu.png"
       :image-width 22
     )
-    {round(EWW_RAM.used_mem_perc, 1)}"%"
+    {round(EWW_CPU.avg, 1)}"%"
   )
 )
-
