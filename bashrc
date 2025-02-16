@@ -10,16 +10,17 @@ export PS1='\u@\h:\[\e[0;49;94;2m\]\w\[\e[0m\]\$ '
 export EDITOR='vim'
 
 alias g="git"
-alias ls="ls --color=auto"
-alias l="ls -l --color=auto"
-alias ll="ls -l --color=auto"
-alias la="ls -la --color=auto"
+alias ls="exa --grid --git --icons"
+alias l="exa --long --git --icons"
+alias ll="exa --long --git --icons"
+alias tree="exa --tree --git --icons"
 
 # . "$HOME/.cargo/env"
 
 export PATH="$PATH:bin"
 export PATH="$PATH:scripts"
 export PATH="$PATH:venv/bin"
+export PATH="$PATH:.venv/bin"
 export PATH="$PATH:~/.local/bin"
 export PATH="$PATH:~/.cargo/bin"
 export PATH="$PATH:node_modules/.bin"

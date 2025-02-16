@@ -37,6 +37,7 @@ local kinds = {
   Snippet = " ",
   String = " ",
   Struct = "󰆼 ",
+  Supermaven = " ",
   TabNine = "󰏚 ",
   Text = " ",
   TypeParameter = " ",
@@ -68,6 +69,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "luasnip" },
+--    { name = "supermaven" }
   }, {
     { name = "buffer" },
   }, {
@@ -84,3 +86,5 @@ cmp.setup({
   },
   sorting = defaults.sorting,
 })
+
+

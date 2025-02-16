@@ -9,6 +9,7 @@ fish/fish_plugins
 fish/fish_variables
 fish/fishd*
 fish/binaries.fish
+kitty/kitty-themes/
 
 zathura/
 sxhkd/
@@ -16,7 +17,6 @@ bspwm/
 polybar/
 lvim/
 tmux/
-vim*/
 fzf*
 picom/
 emacs

@@ -5,17 +5,17 @@ set bg=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_italic=1
-" colo solarized
+colo solarized
 
 set ai ts=2 et sw=2
 set bg=dark
 set bo=all
-set cb+=unnamedplus
+set cb=unnamedplus
 set hi=9999
 set hls ic is lz list
 set lcs=tab:··,trail:·
 set ls=2
-" set isk+=_
+set isk+=_
 set noswapfile
 set nu nornu ru wmnu
 set nowrap

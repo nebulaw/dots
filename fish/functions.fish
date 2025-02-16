@@ -25,3 +25,16 @@ function fish_prompt ()
     echo -n "\$ "
 end
 
+
+function nmcw ()
+  set tempssid $argv[1]
+  set temppass $argv[2]
+  if test (count $argv) -eq 1
+    nmcli dev wifi connect "$tempssid" password "$(cat ~/.netws | grep -w "$tempssid" | head -n1 | sed 's/.*,/')"
+  else if test (count $argv) -eq 2
+    nmcli dev wifi connect "$tempssid" password "$temppass"
+  else
+    echo "Usage: nmcw <ssid> <password>"
+  end
+end
+

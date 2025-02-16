@@ -1,5 +1,9 @@
 set fish_greeting "stargaze! ☆"
 
+# source path
+source ~/Dots/fish/env.fish
+source ~/Dots/fish/functions.fish
+
 # xdg
 set -gx EDITOR nvim
 set -gx XDG_CONFIG_HOME ~/.config
@@ -18,9 +22,6 @@ alias rmex    "chmod -x"
 # SideFX Houdini
 alias hls "sudo /etc/init.d/sesinetd"
 
-# source path
-source ~/Dots/fish/env.fish
-source ~/Dots/fish/functions.fish
 
 # temp bandcamp downloader
 alias bdl "bandcamp-dl --base-dir='/home/nebula/Media/Music/'"

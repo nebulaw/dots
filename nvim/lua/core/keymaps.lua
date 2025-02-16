@@ -74,6 +74,8 @@ nmap("tn", ":tabnew<CR>")
 nmap("te", ":tabedit<CR>")
 nmap("tc", ":tabclose<CR>")
 nmap("tt", ":tabnext<CR>")
+nmap("Tn", ":tabnext<CR>")
+nmap("Tp", ":tabprevious<CR>")
 -- Paste
 imap("<C-v>", "<ESC>l<S-p>i")
 -- Undo/Redo

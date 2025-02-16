@@ -100,7 +100,7 @@ require("trouble").setup({
   use_diagnostic_signs = true,
 })
 
-kset("n", "<space>t", "<cmd>TroubleToggle<return>", { noremap = true, silent = true })
+kset("n", "<space>t", "<cmd>Trouble diagnostics<return>", { noremap = true, silent = true })
 
 -- Illuminate
 require("illuminate").configure({
@@ -115,3 +115,28 @@ vim.keymap.set("i", "<c-j>", 'copilot#Accept("\\<CR>")', {
   noremap = true,
   silent = true,
 })
+
+-- Supermaven
+-- require("supermaven-nvim").setup({
+--   keymaps = {
+--     accept_suggestion = "<C-f>",
+--     clear_suggestion = "<C-]>",
+--     accept_word = "<C-j>",
+--   },
+--   ignore_filetypes = {
+--     cpp = true,
+--   },
+--   color = {
+--     suggestion_color = "#FFFFFF",
+--     cterm = 244,
+--   },
+--   log_level = "info",
+--   disable_inline_completion = false,
+--   disable_keymaps = false,
+--   condition = function()
+--     return false
+--   end
+-- })
+--
+
+

@@ -36,7 +36,8 @@ packer.startup(function(use)
   })
   use("folke/trouble.nvim")
   use("RRethy/vim-illuminate")
-  use("github/copilot.vim")
+  -- use("github/copilot.vim")
+  use("supermaven-inc/supermaven-nvim")
 
   -- Snippets
   use("L3MON4D3/LuaSnip")
@@ -62,6 +63,7 @@ packer.startup(function(use)
   use("metalelf0/jellybeans-nvim")
   use("xiyaowong/transparent.nvim")
   use("craftzdog/solarized-osaka.nvim")
+  use("rebelot/kanagawa.nvim")
 
   -- TreeSitter
   use("nvim-treesitter/nvim-treesitter")

@@ -54,8 +54,8 @@ if vim.g.neovide then
   vim.opt.guifont = "FiraCode Nerd Font Mono:h18"
   vim.opt.linespace = 0
   vim.g.neovide_scale_factor = 0.69
-  vim.g.neovide_transparency = 1.0
-  vim.g.neovide_refresh_rate = 51
+  vim.g.neovide_transparency = 0.73
+  vim.g.neovide_refresh_rate = 40
   vim.g.neovide_refresh_rate_idle = 2
   vim.g.neovide_no_idle = false
   vim.g.neovide_confirm_quit = false

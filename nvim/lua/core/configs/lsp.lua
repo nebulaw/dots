@@ -14,7 +14,6 @@ local servers = {
   "html",
   "jsonls",
   "marksman",
-  "vtsls",
   "tailwindcss",
   "lua_ls",
   "clangd",
@@ -85,17 +84,17 @@ mason_lsp.setup({
       require("lspconfig")[server_name].setup({
         capabilities = capabilities,
         -- This formats file if formatter is provided
-        on_attach = function(client, bufnr)
-          -- if client.server_capabilities.documentFormattingProvider then
-          --   vim.api.nvim_create_autocmd("BufWritePre", {
-          --     group = vim.api.nvim_create_augroup("Format", { clear = true }),
-          --     buffer = bufnr,
-          --     callback = function()
-          --       require("conform").format({ bufnr = bufnr })
-          --     end,
-          --   })
-          -- end
-        end,
+        -- on_attach = function(client, bufnr)
+        --   if client.server_capabilities.documentFormattingProvider then
+        --     vim.api.nvim_create_autocmd("BufWritePre", {
+        --       group = vim.api.nvim_create_augroup("Format", { clear = true }),
+        --       buffer = bufnr,
+        --       callback = function()
+        --         require("conform").format({ bufnr = bufnr })
+        --       end,
+        --     })
+        --   end
+        -- end,
       })
     end,
     ["pyright"] = function()
@@ -184,36 +183,36 @@ mason_lsp.setup({
         single_file_support = true,
       })
     end,
-    ["tsserver"] = function()
-      nvim_lsp["tsserver"].setup({
-        root_dir = util.root_pattern(".git", "package.json"),
-        settings = {
-          typescript = {
-            inlayHints = {
-              includeInlayParameterNameHints = "literal",
-              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayVariableTypeHints = false,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayEnumMemberValueHints = true,
-            },
-          },
-          javascript = {
-            inlayHints = {
-              includeInlayParameterNameHints = "all",
-              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayVariableTypeHints = true,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayEnumMemberValueHints = true,
-            },
-          },
-        },
-        single_file_support = false,
-      })
-    end,
+    -- ["tsserver"] = function()
+    --   nvim_lsp["tsserver"].setup({
+    --     root_dir = util.root_pattern(".git", "package.json"),
+    --     settings = {
+    --       typescript = {
+    --         inlayHints = {
+    --           includeInlayParameterNameHints = "literal",
+    --           includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+    --           includeInlayFunctionParameterTypeHints = true,
+    --           includeInlayVariableTypeHints = false,
+    --           includeInlayPropertyDeclarationTypeHints = true,
+    --           includeInlayFunctionLikeReturnTypeHints = true,
+    --           includeInlayEnumMemberValueHints = true,
+    --         },
+    --       },
+    --       javascript = {
+    --         inlayHints = {
+    --           includeInlayParameterNameHints = "all",
+    --           includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+    --           includeInlayFunctionParameterTypeHints = true,
+    --           includeInlayVariableTypeHints = true,
+    --           includeInlayPropertyDeclarationTypeHints = true,
+    --           includeInlayFunctionLikeReturnTypeHints = true,
+    --           includeInlayEnumMemberValueHints = true,
+    --         },
+    --       },
+    --     },
+    --     single_file_support = true,
+    --   })
+    -- end,
   },
 })
 
@@ -251,10 +250,10 @@ require("lspsaga").setup({
   },
   -- rename
   rename = {
-    quit = "q",
-    exec = "<CR>",
+    quit = "<c-q>",
+    exec = "<cr>",
     mark = "x",
-    confirm = "<CR>",
+    confirm = "<cr>",
     in_select = true,
   },
   -- code actions
@@ -268,7 +267,7 @@ require("lspsaga").setup({
   outline = {
     win_position = "right",
     win_with = "",
-    win_width = 25,
+    win_width = 30,
     show_detail = true,
     auto_preview = true,
   },
