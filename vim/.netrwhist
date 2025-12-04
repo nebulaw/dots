@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/kafka/Workspace/widgera/widgets/widgera-chat'
+let g:netrw_dirhist_2='/home/nebula/Dots/vim'
+let g:netrw_dirhist_1='/home/nebula/Workspace/projects/kiu_grant_program/frontend'
+let g:netrw_dirhist_0='/home/nebula/Dots/fish/functions'
+let g:netrw_dirhist_9='/home/nebula'
+let g:netrw_dirhist_8='/home/nebula/.vim'
+let g:netrw_dirhist_7='/home/nebula/Workspace/projects/dataset/complete'
+let g:netrw_dirhist_6='/home/nebula/Workspace/projects/dataset/complete/d-uznadze'
+let g:netrw_dirhist_5='/home/nebula/Workspace/projects/dataset/complete'
+let g:netrw_dirhist_4='/home/nebula/Workspace/projects/dataset/complete/d-uznadze'
