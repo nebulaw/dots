@@ -1,8 +1,6 @@
 # Dots
 
-configuration files for unix
-
-clone the repo, move these files in destination like, and symlink to one centralized folder
+configuration files for unix. I like to suggest a comfy way to manage dot files: clone the repo, move these files in destination like, and symlink to one centralized folder
 
 ```
 git clone --depth=1 https://github.com/nebulaw/dots.git ~/Dots
