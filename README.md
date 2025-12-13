@@ -1,5 +1,7 @@
 # Dots
 
+![nvim](/media/nvim.png)
+
 configuration files for unix. I like to suggest a comfy way to manage dot files: clone the repo, move these files in destination like, and symlink to one centralized folder
 
 ```
