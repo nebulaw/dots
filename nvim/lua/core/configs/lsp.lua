@@ -17,7 +17,8 @@ local servers = {
   "tailwindcss",
   "lua_ls",
   "clangd",
-  "vtsls"
+  "vtsls",
+  "rust_analyzer"
 }
 
 -- Linting - Made me crazy
@@ -120,9 +121,30 @@ mason_lsp.setup({
         filetypes = { "rust" },
         root_dir = util.root_pattern("Cargo.toml"),
         settings = {
-          ["rust_analyzer"] = {
+          ["rust-analyzer"] = {
             cargo = {
               allFeatures = true,
+              loadOutDirsFromCheck = true,
+            },
+            checkOnSave = {
+              command = "clippy",
+            },
+            procMacro = {
+              enable = true,
+            },
+            completion = {
+              autoimport = {
+                enable = true,
+              },
+              callable = {
+                snippets = "fill_arguments",
+              },
+            },
+            inlayHints = {
+              enable = true,
+              chainingHints = true,
+              typeHints = true,
+              parameterHints = true,
             },
           },
         },
