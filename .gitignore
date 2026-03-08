@@ -1,5 +1,6 @@
 
-.DS*
+**/.DS*
+**/.netrwhist
 
 # not necessary
 fish/completions/
