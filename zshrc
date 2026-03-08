@@ -20,24 +20,36 @@ alias llllll="eza --long --git --icons"
 alias lllllll="eza --long --git --icons"
 alias llllllll="eza --long --git --icons"
 alias tree="eza --tree --git --icons"
+alias copy="pbcopy"
 
 # . "$HOME/.cargo/env"
 
 # Add paths using zsh array syntax
-path+=(
-    'bin'
-    'scripts'
-    'venv/bin'
-    '.venv/bin'
+path=(
+    'bin' # I always check 'bin/' dir when I clone repos, keep your eyes on it
     "$HOME/.local/bin"
     "$HOME/.cargo/bin"
-    'node_modules/.bin'
-    '/opt/homebrew/opt/openjdk@21/bin'
+    '/opt/homebrew/bin'
+    '/opt/homebrew/opt/openjdk/bin'
+    $path
 )
 
 export PATH
-export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
+export JAVA_HOME=/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home
 
+# bun completions
+[ -s "/Users/kafka/.bun/_bun" ] && source "/Users/kafka/.bun/_bun"
 
-# Added by Antigravity
-export PATH="/Users/kafka/.antigravity/antigravity/bin:$PATH"
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# I find vi mode funny in shell
+bindkey -v
+
+# some vi keybindings
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey '^?' backward-delete-char
+
+# opencode
+export PATH=/Users/kafka/.opencode/bin:$PATH
