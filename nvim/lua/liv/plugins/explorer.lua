@@ -49,5 +49,5 @@ end)
 
 local map = vim.keymap.set
 
-map("n", "sf", function() oil.open_float(nil, { preview = {} }) end, { desc = "File explorer (oil float)" })
+map("n", "<leader>o", function() oil.open_float(nil, { preview = {} }) end, { desc = "File explorer (oil float)" })
 map("n", "<leader>e", function() Snacks.explorer() end, { desc = "File tree (snacks explorer)" })

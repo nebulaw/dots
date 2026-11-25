@@ -29,7 +29,7 @@ require("incline").setup({
   end,
 })
 
-map("n", "te", "<cmd>tabedit<cr>", { desc = "New tab" })
-map("n", "tc", "<cmd>tabclose<cr>", { desc = "Close tab" })
-map("n", "tn", "<cmd>tabnext<cr>", { desc = "Next tab" })
-map("n", "tp", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
+map("n", "<leader>te", "<cmd>tabedit<cr>", { desc = "New tab" })
+map("n", "<leader>tx", "<cmd>tabclose<cr>", { desc = "Close tab" })
+map("n", "<leader>tn", "<cmd>tabnext<cr>", { desc = "Next tab" })
+map("n", "<leader>tp", "<cmd>tabprevious<cr>", { desc = "Previous tab" })

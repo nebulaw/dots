@@ -3,13 +3,18 @@ local Snacks = require("snacks")
 Snacks.setup({
   picker = {
     enabled = true,
+    -- Snacks binds <c-q> to "send to quickfix" in its windows; keep it meaning "quit" like everywhere else
+    win = {
+      input = { keys = { ["<c-q>"] = { "close", mode = { "n", "i" } } } },
+      list = { keys = { ["<c-q>"] = "close" } },
+    },
     sources = {
       files = { hidden = true },
       grep = { hidden = true },
       explorer = { hidden = true },
     },
   },
-  notifier = { enabled = true },
+  notifier = { enabled = false },
   explorer = { enabled = true, replace_netrw = false },
   words = { enabled = true },
   lazygit = {

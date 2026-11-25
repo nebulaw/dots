@@ -1,0 +1,2 @@
+WRN 2026-11-17T23:23:11.945 ?.53280    server_start:197: Failed to start server: operation not permitted: /var/folders/zg/nwv3ghj17kn3xkd8dbqxgplh0000gn/T/nvim.kafka/EkWLSH/nvim.53280.0
+WRN 2026-11-17T23:23:15.896 ?.53291    server_start:197: Failed to start server: operation not permitted: /var/folders/zg/nwv3ghj17kn3xkd8dbqxgplh0000gn/T/nvim.kafka/kS4kNz/nvim.53291.0
